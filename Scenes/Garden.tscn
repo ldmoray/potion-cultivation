@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Garden.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Interactables/Pot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Interactables/Scissors.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Interactables/Seeds.tscn" type="PackedScene" id=5]
+
+[node name="Garden" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+location = "Garden"
+
+[node name="Pot" parent="." instance=ExtResource( 3 )]
+position = Vector2( 356, 282 )
+
+[node name="Pot2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 528, 282 )
+
+[node name="ItemBench" type="Node2D" parent="."]
+
+[node name="Pos1" type="Node2D" parent="ItemBench"]
+position = Vector2( 100, 430 )
+
+[node name="Scissors" parent="ItemBench/Pos1" instance=ExtResource( 4 )]
+
+[node name="SeedBench" type="Node2D" parent="."]
+
+[node name="Pos1" type="Node2D" parent="SeedBench"]
+position = Vector2( 700, 430 )
+
+[node name="Seeds" parent="SeedBench/Pos1" instance=ExtResource( 5 )]

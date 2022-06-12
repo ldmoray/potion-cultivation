@@ -1,0 +1,120 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "default-theme.cfg"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello Potion Seller."
+		},
+		{
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm going to battle."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "AnnoyingLoop"
+		},
+		{
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": " I want your strongest potions"
+		},
+		{
+			"choice": "My potions are too strong for you traveller.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Potion Seller, I tell you I'm going into battle and I want only your strongest potions."
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "I'm fresh out of supplies. I need two flowers.",
+			"condition": "<",
+			"definition": "1654998824-648",
+			"event_id": "dialogic_011",
+			"value": "2"
+		},
+		{
+			"character": "character-1654981380.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hurry up and get some supplies then. I can see them on your right."
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Sure, ok.",
+			"condition": ">=",
+			"definition": "1654998824-648",
+			"event_id": "dialogic_011",
+			"value": "2"
+		},
+		{
+			"definition": "1654998824-648",
+			"event_id": "dialogic_014",
+			"operation": "-",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "2"
+		},
+		{
+			"emit_signal": "flowers_changed",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.2 - Dev",
+		"file": "timeline-1654981436.json",
+		"name": "TestTimeline"
+	}
+}
