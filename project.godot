@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
+"base": "Node2D",
+"class": "GardenInteractable",
+"language": "GDScript",
+"path": "res://Scenes/Interactables/GardenInteractable.gd"
+}, {
 "base": "PanelContainer",
 "class": "HistoryRow",
 "language": "GDScript",
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
+"GardenInteractable": "",
 "HistoryRow": "",
 "TravelButton": ""
 }

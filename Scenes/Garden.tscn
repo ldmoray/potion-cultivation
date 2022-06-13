@@ -24,6 +24,7 @@ position = Vector2( 528, 282 )
 position = Vector2( 100, 430 )
 
 [node name="Scissors" parent="ItemBench/Pos1" instance=ExtResource( 4 )]
+pickupable = true
 
 [node name="SeedBench" type="Node2D" parent="."]
 
@@ -31,3 +32,4 @@ position = Vector2( 100, 430 )
 position = Vector2( 700, 430 )
 
 [node name="Seeds" parent="SeedBench/Pos1" instance=ExtResource( 5 )]
+pickupable = true
