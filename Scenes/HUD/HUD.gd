@@ -32,10 +32,8 @@ func _on_day_change():
 	$Control/DayPanel/Label.text = "Day %s" % PlotManager.day
 
 func _on_GrowButton_pressed() -> void:
-	for plant in get_tree().get_nodes_in_group("Plant"):
-		plant.grow()
-
-
+	get_tree().call_group("Plant", "grow")
+	GameManager.call_sleeping_group("Plant", "grow")
 
 func _on_NextDayButton_pressed() -> void:
 	_on_GrowButton_pressed()

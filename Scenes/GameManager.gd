@@ -18,8 +18,22 @@ func _deferred_goto_scene(path, clean):
 	get_tree().get_root().remove_child(current_scene)
 	if path in scenes:
 		current_scene = scenes[path]
+		scenes.erase(path)
 	else:
 		var s = ResourceLoader.load(path)
 		current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
+
+func _walk_sleeping_node(node: Node) -> Array:
+	var nodes = []
+	for child in node.get_children():
+		nodes.append_array(_walk_sleeping_node(child))
+	nodes.append(node)
+	return nodes
+
+func call_sleeping_group(group: String, method: String):
+	for i in scenes:
+		for node in _walk_sleeping_node(scenes[i]):
+			if node.is_in_group(group):
+				node.call(method)
