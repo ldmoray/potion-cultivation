@@ -69,11 +69,11 @@
 			"event_id": "dialogic_016"
 		},
 		{
-			"choice": "I'm fresh out of supplies. I need two flowers.",
+			"choice": "I'm fresh out of supplies. I need three flowers.",
 			"condition": "<",
 			"definition": "1654998824-648",
 			"event_id": "dialogic_011",
-			"value": "2"
+			"value": "3"
 		},
 		{
 			"character": "character-1654981380.json",
@@ -90,7 +90,7 @@
 			"condition": ">=",
 			"definition": "1654998824-648",
 			"event_id": "dialogic_011",
-			"value": "2"
+			"value": "3"
 		},
 		{
 			"definition": "1654998824-648",
@@ -98,10 +98,26 @@
 			"operation": "-",
 			"random_upper_limit": 100,
 			"set_random": false,
-			"set_value": "2"
+			"set_value": "3"
 		},
 		{
 			"emit_signal": "flowers_changed",
+			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1655079012-648",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "7"
+		},
+		{
+			"emit_signal": "coins_changed",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "timeline_finished",
 			"event_id": "dialogic_040"
 		},
 		{
