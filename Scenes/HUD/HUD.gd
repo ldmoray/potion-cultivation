@@ -10,26 +10,26 @@ func _ready() -> void:
 	_on_day_change()
 
 func set_right_scene_path(path: String):
-	$Control/TravelRight.scene_path = path
-	$Control/TravelRight.disabled = false
-	$Control/TravelRight.visible = true
-	$Control/TravelRightWarn.visible = true
+	$HUD/TravelRight.scene_path = path
+	$HUD/TravelRight.disabled = false
+	$HUD/TravelRight.visible = true
+	$HUD/TravelRightWarn.visible = true
 
 func set_left_scene_path(path: String):
-	$Control/TravelLeft.scene_path = path
-	$Control/TravelLeft.disabled = false
-	$Control/TravelLeft.visible = true
-	$Control/TravelLeftWarn.visible = true
+	$HUD/TravelLeft.scene_path = path
+	$HUD/TravelLeft.disabled = false
+	$HUD/TravelLeft.visible = true
+	$HUD/TravelLeftWarn.visible = true
 
 func set_location(name: String):
-	$Control/LocationPanel/Label.text = name
+	$HUD/LocationPanel/Label.text = name
 
 func _on_inventory_change():
-	$Control/InventoryPanel/FlowersLabel.text = "Flowers: %s" % InventoryManager.flowers
-	$Control/InventoryPanel/CoinLabel.text = "Coins: %s" % InventoryManager.coins
+	$HUD/InventoryPanel/FlowersLabel.text = "Flowers: %s" % InventoryManager.flowers
+	$HUD/InventoryPanel/CoinLabel.text = "Coins: %s" % InventoryManager.coins
 
 func _on_day_change():
-	$Control/DayPanel/Label.text = "Day %s" % PlotManager.day
+	$HUD/DayPanel/Label.text = "Day %s" % PlotManager.day
 
 func _on_GrowButton_pressed() -> void:
 	get_tree().call_group("Plant", "grow")
@@ -38,3 +38,4 @@ func _on_GrowButton_pressed() -> void:
 func _on_NextDayButton_pressed() -> void:
 	_on_GrowButton_pressed()
 	GameManager.goto_scene("res://Scenes/Sleep.tscn")
+

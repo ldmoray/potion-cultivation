@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/BasicSideButton.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD/TravelButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/HUD/PauseMenu.gd" type="Script" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource( 2 )
 
-[node name="Control" type="Control" parent="."]
+[node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TravelRightWarn" type="TextureButton" parent="Control"]
+[node name="TravelRightWarn" type="TextureButton" parent="HUD"]
 visible = false
 modulate = Color( 1, 1, 1, 0.4 )
 anchor_left = 0.92
@@ -25,7 +26,7 @@ texture_hover = ExtResource( 1 )
 texture_focused = ExtResource( 1 )
 expand = true
 
-[node name="TravelRight" type="TextureButton" parent="Control"]
+[node name="TravelRight" type="TextureButton" parent="HUD"]
 visible = false
 anchor_left = 0.94
 anchor_right = 1.0
@@ -36,7 +37,7 @@ texture_focused = ExtResource( 1 )
 expand = true
 script = ExtResource( 3 )
 
-[node name="TravelLeftWarn" type="TextureButton" parent="Control"]
+[node name="TravelLeftWarn" type="TextureButton" parent="HUD"]
 visible = false
 modulate = Color( 1, 1, 1, 0.4 )
 anchor_right = 0.08
@@ -46,7 +47,7 @@ texture_hover = ExtResource( 1 )
 texture_focused = ExtResource( 1 )
 expand = true
 
-[node name="TravelLeft" type="TextureButton" parent="Control"]
+[node name="TravelLeft" type="TextureButton" parent="HUD"]
 visible = false
 anchor_right = 0.06
 anchor_bottom = 1.0
@@ -56,20 +57,20 @@ texture_focused = ExtResource( 1 )
 expand = true
 script = ExtResource( 3 )
 
-[node name="LocationPanel" type="Panel" parent="Control"]
+[node name="LocationPanel" type="Panel" parent="HUD"]
 anchor_right = 0.087
 anchor_bottom = 0.122
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Control/LocationPanel"]
+[node name="Label" type="Label" parent="HUD/LocationPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 align = 1
 valign = 1
 
-[node name="DayPanel" type="Panel" parent="Control"]
+[node name="DayPanel" type="Panel" parent="HUD"]
 anchor_left = 0.106
 anchor_right = 0.199
 anchor_bottom = 0.122
@@ -77,14 +78,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Control/DayPanel"]
+[node name="Label" type="Label" parent="HUD/DayPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Day 0"
 align = 1
 valign = 1
 
-[node name="GrowButton" type="Button" parent="Control"]
+[node name="GrowButton" type="Button" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -210.0
@@ -96,7 +97,7 @@ button_mask = 3
 text = "Grow"
 clip_text = true
 
-[node name="NextDayButton" type="Button" parent="Control"]
+[node name="NextDayButton" type="Button" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -210.0
@@ -106,7 +107,7 @@ margin_bottom = 61.0
 text = "Sleep"
 clip_text = true
 
-[node name="InventoryPanel" type="Panel" parent="Control"]
+[node name="InventoryPanel" type="Panel" parent="HUD"]
 anchor_left = 0.217
 anchor_right = 0.776
 anchor_bottom = 0.124
@@ -114,7 +115,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="InventoryLabel" type="Label" parent="Control/InventoryPanel"]
+[node name="InventoryLabel" type="Label" parent="HUD/InventoryPanel"]
 anchor_right = 0.214669
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.505882, 0.537255, 0.807843, 1 )
@@ -122,7 +123,7 @@ text = "Inventory"
 align = 1
 valign = 1
 
-[node name="FlowersLabel" type="Label" parent="Control/InventoryPanel"]
+[node name="FlowersLabel" type="Label" parent="HUD/InventoryPanel"]
 anchor_left = 0.245081
 anchor_right = 0.486583
 anchor_bottom = 1.0
@@ -133,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CoinLabel" type="Label" parent="Control/InventoryPanel"]
+[node name="CoinLabel" type="Label" parent="HUD/InventoryPanel"]
 anchor_left = 0.504472
 anchor_right = 0.708408
 anchor_bottom = 1.0
@@ -144,5 +145,47 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="Control/GrowButton" to="." method="_on_GrowButton_pressed"]
-[connection signal="pressed" from="Control/NextDayButton" to="." method="_on_NextDayButton_pressed"]
+[node name="PauseMenu" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Backgound" type="ColorRect" parent="PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0117647, 0.00784314, 0.00784314, 0.862745 )
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer"]
+margin_left = 420.0
+margin_top = 210.0
+margin_right = 579.0
+margin_bottom = 290.0
+
+[node name="Label" type="Label" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_right = 159.0
+margin_bottom = 20.0
+text = "Paused"
+align = 1
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 159.0
+margin_bottom = 50.0
+text = "Resume"
+
+[node name="TitleScreenBtn" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 159.0
+margin_bottom = 80.0
+text = "Return to Title Screen"
+
+[connection signal="pressed" from="HUD/GrowButton" to="." method="_on_GrowButton_pressed"]
+[connection signal="pressed" from="HUD/NextDayButton" to="." method="_on_NextDayButton_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/ResumeBtn" to="PauseMenu" method="_on_ResumeBtn_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/TitleScreenBtn" to="PauseMenu" method="_on_TitleScreenBtn_pressed"]
