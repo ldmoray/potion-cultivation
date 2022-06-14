@@ -80,7 +80,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/DayPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "Day: 0"
+text = "Day 0"
 align = 1
 valign = 1
 
@@ -90,17 +90,21 @@ anchor_right = 1.0
 margin_left = -210.0
 margin_top = 5.0
 margin_right = -118.0
-margin_bottom = 25.0
+margin_bottom = 29.0
+rect_clip_content = true
+button_mask = 3
 text = "Grow"
+clip_text = true
 
 [node name="NextDayButton" type="Button" parent="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -210.0
-margin_top = 40.0
+margin_top = 37.0
 margin_right = -118.0
-margin_bottom = 60.0
+margin_bottom = 61.0
 text = "Sleep"
+clip_text = true
 
 [node name="InventoryPanel" type="Panel" parent="Control"]
 anchor_left = 0.217
@@ -113,13 +117,10 @@ __meta__ = {
 [node name="InventoryLabel" type="Label" parent="Control/InventoryPanel"]
 anchor_right = 0.214669
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.505882, 0.537255, 0.807843, 1 )
 text = "Inventory"
 align = 1
 valign = 1
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="FlowersLabel" type="Label" parent="Control/InventoryPanel"]
 anchor_left = 0.245081
