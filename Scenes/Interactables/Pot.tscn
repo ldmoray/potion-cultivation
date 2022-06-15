@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Garden/Pot-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Interactables/PotArea2D.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Interactables/Pot.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Interactables/LockedSprite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/BasicSideButton.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 51, 51 )
@@ -44,6 +46,17 @@ centered = false
 
 [node name="PlantPoint" type="Node2D" parent="."]
 position = Vector2( 8, -87 )
+
+[node name="Lock" type="Node2D" parent="."]
+
+[node name="LockedSprite" parent="Lock" instance=ExtResource( 4 )]
+position = Vector2( 65, -44 )
+
+[node name="Sprite" type="Sprite" parent="Lock"]
+modulate = Color( 1, 1, 1, 0.733333 )
+scale = Vector2( 1.306, 1.306 )
+texture = ExtResource( 5 )
+centered = false
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

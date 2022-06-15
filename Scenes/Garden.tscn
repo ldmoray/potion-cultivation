@@ -14,9 +14,12 @@ location = "Garden"
 
 [node name="Pot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 356, 282 )
+is_locked = true
+unlock_cost = 5
 
 [node name="Pot2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 528, 282 )
+unlock_cost = 5
 
 [node name="ItemBench" type="Node2D" parent="."]
 
