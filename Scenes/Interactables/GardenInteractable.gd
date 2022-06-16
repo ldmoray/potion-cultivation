@@ -42,6 +42,9 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 			self.is_locked = false
 			InventoryManager.coins -= unlock_cost
 			return
+		else:
+			AudioStreamManager.play_sfx("res://Assets/error.wav")
+			return
 	if not pickupable:
 		return
 	if event is InputEventMouseButton && event.is_pressed():

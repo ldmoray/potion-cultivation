@@ -24,6 +24,8 @@ func get_flowers() -> int:
 	return flowers
 
 func set_coins(new_value: int):
+	if new_value > coins:
+		AudioStreamManager.play_sfx("res://Assets/coin.wav")
 	coins = new_value
 	emit_signal("inventory_changed")
 

@@ -18,3 +18,7 @@ func _on_ResumeBtn_pressed() -> void:
 func _on_TitleScreenBtn_pressed() -> void:
 	self.is_paused = false
 	GameManager.goto_scene("res://Scenes/TitleScreen.tscn")
+
+
+func _on_OptionsBtn_pressed() -> void:
+	$Options.visible = true

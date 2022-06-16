@@ -98,6 +98,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+AudioStreamManager="*res://Scenes/AudioStreamManager.gd"
 GameManager="*res://Scenes/GameManager.gd"
 InventoryManager="*res://Scenes/InventoryManager.gd"
 PlotManager="*res://Scenes/PlotManager.gd"
