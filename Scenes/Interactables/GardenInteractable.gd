@@ -10,20 +10,26 @@ export var unlock_cost := 0
 func _ready() -> void:
 	if has_node("Lock"):
 		$Lock.visible = is_locked
+		if has_node("Lock/Coin"):
+			$Lock/Coin/Control/CC/Label.text = str(unlock_cost)
 
 func set_is_locked(value: bool) -> void:
 	is_locked = value
 	$Lock.visible = is_locked
 
 func _on_Area2D_mouse_entered() -> void:
-	if is_locked:
+	if is_locked && has_node("Lock"):
 		$Lock/LockedSprite.play("unlock")
+		if has_node("Lock/Coin"):
+			$Lock/Coin/CoinSprite.play("selected")
 	else:
 		$AnimatedSprite.play("selected")
 
 func _on_Area2D_mouse_exited() -> void:
-	if is_locked:
+	if is_locked && has_node("Lock"):
 		$Lock/LockedSprite.play("locked")
+		if has_node("Lock/Coin"):
+			$Lock/Coin/CoinSprite.play("default")
 	else:
 		$AnimatedSprite.play("default")
 

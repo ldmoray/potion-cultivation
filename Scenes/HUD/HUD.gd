@@ -26,7 +26,7 @@ func set_location(name: String):
 
 func _on_inventory_change():
 	$HUD/InventoryPanel/FlowersLabel.text = "Flowers: %s" % InventoryManager.flowers
-	$HUD/InventoryPanel/CoinLabel.text = "Coins: %s" % InventoryManager.coins
+	$HUD/InventoryPanel/CoinLabel.text = ": %s" % InventoryManager.coins
 
 func _on_day_change():
 	$HUD/DayPanel/Label.text = "Day %s" % PlotManager.day
